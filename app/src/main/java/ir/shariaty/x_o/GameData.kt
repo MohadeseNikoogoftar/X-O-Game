@@ -13,9 +13,7 @@ object GameData {
     fun saveGameModel(model: GameModel){
         _gameModel.postValue(model)
         if (model.gameId!="-1") {
-            Firebase.firestore.collection("games")
-                .document(model.gameId)
-                .set(model)
+            Firebase.firestore.collection("games").document(model.gameId).set(model)
         }
     }
 }
